@@ -13,14 +13,14 @@ export function HeroSection() {
   };
 
   return (
-    <section className="px-6 py-16 md:py-24 flex flex-col items-center justify-center text-center bg-gradient-to-b from-primary/5 to-background">
-      <Logo variant="vertical" showTagline className="mb-8" />
+    <section className="px-6 py-16 md:py-24 flex flex-col items-center justify-center text-center bg-linear-to-b from-primary/5 to-background">
+      <Logo variant="vertical" showTagline className="mb-0" />
 
       <Badge variant="outline" className="mb-6 border-primary/20 text-primary">
         Trusted by 10,000+ homeowners
       </Badge>
 
-      <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 max-w-4xl">Find verified construction workers in your area</h1>
+      <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 max-w-4xl">Find construction workers in your area</h1>
 
       <p className="text-muted-foreground mb-8 max-w-2xl text-lg md:text-xl">
         Connect with skilled electricians, plumbers, painters, and carpenters. Get quotes, read reviews, and hire with confidence.

@@ -10,12 +10,12 @@ export function Logo({ variant = "horizontal", className = "", showTagline = fal
   const getLogoPath = () => {
     switch (variant) {
       case "icon":
-        return "/brand/mestrio_v4_icon.svg";
+        return "/brand/mestrio_v3_icon.svg";
       case "vertical":
-        return "/brand/mestrio_v4_full.svg";
+        return "/brand/mestrio_v2_full.svg";
       case "horizontal":
       default:
-        return "/brand/mestrio_v4_full.svg";
+        return "/brand/mestrio_v3_full.svg";
     }
   };
 
@@ -46,7 +46,7 @@ export function Logo({ variant = "horizontal", className = "", showTagline = fal
           height: "auto",
         }}
       />
-      {showTagline && variant === "vertical" && <span className="text-xs text-muted-foreground font-medium">Meșteri locali, la un click</span>}
+      {/*{showTagline && variant === "vertical" && <span className="text-xs text-muted-foreground font-medium">Meșteri locali, la un click</span>}*/}
     </Link>
   );
 }
