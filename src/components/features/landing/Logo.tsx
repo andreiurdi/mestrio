@@ -45,6 +45,8 @@ export function Logo({
         alt="Mestrio"
         style={{
           display: "block",
+          maxWidth: "100%",
+          height: "auto",
           ...getSizeStyles(),
         }}
       />
