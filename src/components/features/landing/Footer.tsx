@@ -1,6 +1,10 @@
+"use client";
+
+import { useTranslations } from "next-intl";
 import { Logo } from "./Logo";
 
 export function Footer() {
+  const t = useTranslations("footer");
   const currentYear = new Date().getFullYear();
 
   return (
@@ -8,25 +12,27 @@ export function Footer() {
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col items-center justify-center text-center gap-6">
           <Logo className="scale-125" />
-          <p className="text-sm text-muted-foreground max-w-md">Connecting homeowners with trusted construction professionals. Build your dream project with confidence.</p>
+          <p className="text-sm text-muted-foreground max-w-md">{t("description")}</p>
           <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground">
             <a href="#" className="hover:text-foreground transition-colors">
-              About
+              {t("links.about")}
             </a>
             <a href="#" className="hover:text-foreground transition-colors">
-              How it works
+              {t("links.howItWorks")}
             </a>
             <a href="#" className="hover:text-foreground transition-colors">
-              Privacy Policy
+              {t("links.privacyPolicy")}
             </a>
             <a href="#" className="hover:text-foreground transition-colors">
-              Terms of Service
+              {t("links.termsOfService")}
             </a>
             <a href="#" className="hover:text-foreground transition-colors">
-              Contact
+              {t("links.contact")}
             </a>
           </div>
-          <p className="text-sm text-muted-foreground">© {currentYear} Mestrio. All rights reserved.</p>
+          <p className="text-sm text-muted-foreground">
+            {t("copyright", { year: currentYear })}
+          </p>
         </div>
       </div>
     </footer>
