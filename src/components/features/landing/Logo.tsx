@@ -46,10 +46,10 @@ export function Logo({ variant = "horizontal", className = "", showTagline = fal
       <Image
         src="https://cdn.builder.io/api/v1/image/assets%2Fadadeadcfd004af090dcf2211799ead3%2F309c6231c81b488cb75d5b7752a6a0fe?format=webp&width=800&height=1200"
         alt="Mestrio"
-        width={150}
-        height={50}
+        width={240}
+        height={80}
         priority
-        style={{ width: "auto", height: "auto", maxHeight: "40px" }}
+        style={{ width: "auto", height: "auto", maxHeight: "56px" }}
       />
     </Link>
   );
