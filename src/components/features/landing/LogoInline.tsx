@@ -38,17 +38,16 @@ export function LogoInline({
   return (
     <Link
       href="/"
-      className={`inline-flex items-center shrink-0 ${className}`}
+      className={`inline-flex flex-col items-center gap-2 shrink-0 ${className}`}
     >
-      <svg
-        className={getSizeClasses()}
-        viewBox="0 0 512 512"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <use href={`${getLogoPath()}#logo`} />
-      </svg>
+      <img
+        src={getLogoPath()}
+        alt="Mestrio"
+        className={`${getSizeClasses()}`}
+        style={{ display: "block" }}
+      />
       {showTagline && variant === "vertical" && (
-        <span className="text-xs text-muted-foreground font-medium mt-2">
+        <span className="text-xs text-muted-foreground font-medium">
           Meșteri locali, la un click
         </span>
       )}
