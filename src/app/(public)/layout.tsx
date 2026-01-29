@@ -8,16 +8,18 @@ export default function PublicLayout({
 }) {
   return (
     <div className="min-h-screen bg-background flex flex-col">
-      <header className="h-14 border-b border-border bg-background flex items-center justify-between px-6">
-        <div className="font-semibold text-lg">Mestrio</div>
-        <div className="flex items-center gap-4">
+      <header className="sticky top-0 z-50 h-16 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 flex items-center justify-between px-6">
+        <Link href="/" className="flex items-center">
+          <div className="font-bold text-xl text-primary">Mestrio</div>
+        </Link>
+        <nav className="flex items-center gap-3">
           <Link href="/auth/login">
             <Button variant="ghost">Sign in</Button>
           </Link>
           <Link href="/auth/register">
-            <Button>Find workers</Button>
+            <Button>Get started</Button>
           </Link>
-        </div>
+        </nav>
       </header>
       {children}
     </div>
