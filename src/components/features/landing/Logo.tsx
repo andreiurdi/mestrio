@@ -33,9 +33,7 @@ export function Logo({ variant = "horizontal", className = "", showTagline = fal
           priority
           style={{ width: "auto", height: "auto" }}
         />
-        {showTagline && (
-          <span className="text-xs text-muted-foreground font-medium">Meșteri locali, la un click</span>
-        )}
+        {showTagline && <span className="text-xs text-muted-foreground font-medium">Meșteri locali, la un click</span>}
       </Link>
     );
   }
