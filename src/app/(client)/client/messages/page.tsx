@@ -21,7 +21,7 @@ export default function ClientMessagesPage() {
         <Card className="p-4">
           <div className="text-sm text-muted-foreground">Select a conversation to view messages.</div>
 
-          <div className="mt-6 h-[420px] rounded-lg border border-dashed border-border flex items-center justify-center text-muted-foreground">Chat area placeholder</div>
+          <div className="mt-6 h-105 rounded-lg border border-dashed border-border flex items-center justify-center text-muted-foreground">Chat area placeholder</div>
         </Card>
       </div>
     </div>
