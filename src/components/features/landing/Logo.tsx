@@ -23,15 +23,15 @@ export function Logo({
     }
   };
 
-  const getSizeClasses = () => {
+  const getSizeStyles = () => {
     switch (variant) {
       case "icon":
-        return "h-8 w-8";
+        return { width: "32px", height: "32px" };
       case "vertical":
-        return "w-72 h-auto";
+        return { width: "288px", height: "auto" };
       case "horizontal":
       default:
-        return "h-16 w-auto";
+        return { width: "auto", height: "64px" };
     }
   };
 
@@ -43,8 +43,10 @@ export function Logo({
       <img
         src={getLogoPath()}
         alt="Mestrio"
-        className={getSizeClasses()}
-        style={{ display: "block" }}
+        style={{
+          display: "block",
+          ...getSizeStyles(),
+        }}
       />
       {showTagline && variant === "vertical" && (
         <span className="text-xs text-muted-foreground font-medium">
