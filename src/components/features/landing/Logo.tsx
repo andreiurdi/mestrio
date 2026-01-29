@@ -41,13 +41,10 @@ export function Logo({ variant = "horizontal", className = "", showTagline = fal
   // Horizontal variant (default) - with title next to house
   return (
     <Link href="/" className={`inline-flex items-center shrink-0 ${className}`}>
-      <Image
-        src="https://cdn.builder.io/api/v1/image/assets%2Fadadeadcfd004af090dcf2211799ead3%2F7e8e58b6583c44209046a3572329fddf?format=webp&width=800&height=1200"
+      <img
+        src="https://cdn.builder.io/api/v1/image/assets%2Fadadeadcfd004af090dcf2211799ead3%2F85b3ba6e772049b9ab57395fc189be09"
         alt="Mestrio"
-        width={240}
-        height={80}
-        priority
-        style={{ width: "auto", height: "auto", maxHeight: "56px" }}
+        className="h-14 w-auto"
       />
     </Link>
   );
