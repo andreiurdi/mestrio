@@ -41,7 +41,7 @@ export function Logo({ variant = "horizontal", className = "", showTagline = fal
       <img
         src="https://cdn.builder.io/api/v1/image/assets%2Fadadeadcfd004af090dcf2211799ead3%2F85b3ba6e772049b9ab57395fc189be09"
         alt="Mestrio"
-        className="h-14 w-auto"
+        className="h-16 w-auto"
       />
     </Link>
   );
