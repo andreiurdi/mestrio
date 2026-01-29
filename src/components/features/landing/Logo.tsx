@@ -23,17 +23,19 @@ export function Logo({
     }
   };
 
-  const getSizeStyles = () => {
+  const getSizeProps = () => {
     switch (variant) {
       case "icon":
-        return { width: "32px", height: "32px" };
+        return { width: 32, height: 32 };
       case "vertical":
-        return { width: "288px", height: "auto" };
+        return { width: 288, height: 288 };
       case "horizontal":
       default:
-        return { width: "auto", height: "64px" };
+        return { width: 256, height: 64 };
     }
   };
+
+  const sizeProps = getSizeProps();
 
   return (
     <Link
@@ -43,11 +45,12 @@ export function Logo({
       <img
         src={getLogoPath()}
         alt="Mestrio"
+        width={sizeProps.width}
+        height={sizeProps.height}
         style={{
           display: "block",
           maxWidth: "100%",
           height: "auto",
-          ...getSizeStyles(),
         }}
       />
       {showTagline && variant === "vertical" && (
