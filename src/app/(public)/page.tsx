@@ -1,8 +1,4 @@
-import { HeroSection } from "@/components/mestrio/HeroSection";
-import { HowItWorksSection } from "@/components/mestrio/HowItWorksSection";
-import { FeaturesSection } from "@/components/mestrio/FeaturesSection";
-import { CTASection } from "@/components/mestrio/CTASection";
-import { Footer } from "@/components/mestrio/Footer";
+import { HeroSection, HowItWorksSection, FeaturesSection, CTASection, Footer } from "@/components/features/landing";
 
 export default function PublicLandingPage() {
   return (
