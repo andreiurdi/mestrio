@@ -12,7 +12,7 @@ export function Logo({ variant = "horizontal", className = "", showTagline = fal
     return (
       <Link href="/" className={`inline-flex items-center ${className}`}>
         <Image
-          src="https://cdn.builder.io/api/v1/image/assets%2Fadadeadcfd004af090dcf2211799ead3%2Fc7e75ae462614c789b468305f85ffebd?format=webp&width=800&height=1200"
+          src="https://cdn.builder.io/api/v1/image/assets%2Fadadeadcfd004af090dcf2211799ead3%2F6ab64d9611dc455db9f6858f4163a164"
           alt="Mestrio"
           width={32}
           height={32}
@@ -26,7 +26,7 @@ export function Logo({ variant = "horizontal", className = "", showTagline = fal
     return (
       <Link href="/" className={`inline-flex flex-col items-center gap-2 ${className}`}>
         <Image
-          src="https://cdn.builder.io/api/v1/image/assets%2Fadadeadcfd004af090dcf2211799ead3%2F8c3bcaeb831c44bfa260b4acbe4ce514?format=webp&width=800&height=1200"
+          src="https://cdn.builder.io/api/v1/image/assets%2Fadadeadcfd004af090dcf2211799ead3%2Fd1ce5770b13a44ef82de851678a03166"
           alt="Mestrio"
           width={280}
           height={150}
@@ -42,7 +42,7 @@ export function Logo({ variant = "horizontal", className = "", showTagline = fal
   return (
     <Link href="/" className={`inline-flex items-center shrink-0 ${className}`}>
       <Image
-        src="https://cdn.builder.io/api/v1/image/assets%2Fadadeadcfd004af090dcf2211799ead3%2F8c3bcaeb831c44bfa260b4acbe4ce514?format=webp&width=800&height=1200"
+        src="https://cdn.builder.io/api/v1/image/assets%2Fadadeadcfd004af090dcf2211799ead3%2F85b3ba6e772049b9ab57395fc189be09"
         alt="Mestrio"
         width={240}
         height={80}
