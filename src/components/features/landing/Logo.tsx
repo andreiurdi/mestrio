@@ -28,7 +28,7 @@ export function Logo({ variant = "horizontal", className = "", showTagline = fal
         <img
           src="https://cdn.builder.io/api/v1/image/assets%2Fadadeadcfd004af090dcf2211799ead3%2F85b3ba6e772049b9ab57395fc189be09"
           alt="Mestrio"
-          className="w-56 h-auto"
+          className="w-72 h-auto"
         />
         {showTagline && <span className="text-xs text-muted-foreground font-medium">Meșteri locali, la un click</span>}
       </Link>
