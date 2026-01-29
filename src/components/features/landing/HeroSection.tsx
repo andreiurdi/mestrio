@@ -14,7 +14,7 @@ export function HeroSection() {
 
   return (
     <section className="px-6 py-16 md:py-24 flex flex-col items-center justify-center text-center bg-gradient-to-b from-primary/5 to-background">
-      <Logo className="mb-8 scale-150" />
+      <Logo variant="vertical" showTagline className="mb-8" />
 
       <Badge variant="outline" className="mb-6 border-primary/20 text-primary">
         Trusted by 10,000+ homeowners
