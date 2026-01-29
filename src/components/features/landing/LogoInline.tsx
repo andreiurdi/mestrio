@@ -1,7 +1,4 @@
-'use client';
-
 import Link from "next/link";
-import { useState, useEffect } from "react";
 
 interface LogoInlineProps {
   variant?: "horizontal" | "icon" | "vertical";
@@ -14,9 +11,6 @@ export function LogoInline({
   className = "",
   showTagline = false,
 }: LogoInlineProps) {
-  const [svgContent, setSvgContent] = useState<string>("");
-  const [isLoading, setIsLoading] = useState(true);
-
   const getLogoPath = () => {
     switch (variant) {
       case "icon":
@@ -28,22 +22,6 @@ export function LogoInline({
         return "/brand/mestrio_v4_full.svg";
     }
   };
-
-  useEffect(() => {
-    const loadSvg = async () => {
-      try {
-        const response = await fetch(getLogoPath());
-        const text = await response.text();
-        setSvgContent(text);
-      } catch (error) {
-        console.error("Failed to load SVG:", error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    loadSvg();
-  }, [variant]);
 
   const getSizeClasses = () => {
     switch (variant) {
@@ -57,23 +35,23 @@ export function LogoInline({
     }
   };
 
-  if (isLoading) {
-    return (
-      <Link href="/" className={`inline-flex items-center shrink-0 ${className}`}>
-        <div className={`${getSizeClasses()} bg-muted rounded animate-pulse`} />
-      </Link>
-    );
-  }
-
   return (
     <Link
       href="/"
       className={`inline-flex items-center shrink-0 ${className}`}
-      dangerouslySetInnerHTML={{
-        __html: `<svg class="${getSizeClasses()}" ${svgContent.substring(
-          svgContent.indexOf(" ") + 1
-        )}`,
-      }}
-    />
+    >
+      <svg
+        className={getSizeClasses()}
+        viewBox="0 0 512 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <use href={`${getLogoPath()}#logo`} />
+      </svg>
+      {showTagline && variant === "vertical" && (
+        <span className="text-xs text-muted-foreground font-medium mt-2">
+          Meșteri locali, la un click
+        </span>
+      )}
+    </Link>
   );
 }
