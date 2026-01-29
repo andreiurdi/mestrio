@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle } from "lucide-react";
+import { Logo } from "./Logo";
 
 export function HeroSection() {
   const handleSearch = (e: React.FormEvent) => {
@@ -13,6 +14,8 @@ export function HeroSection() {
 
   return (
     <section className="px-6 py-16 md:py-24 flex flex-col items-center justify-center text-center bg-gradient-to-b from-primary/5 to-background">
+      <Logo className="mb-8 scale-150" />
+
       <Badge variant="outline" className="mb-6 border-primary/20 text-primary">
         Trusted by 10,000+ homeowners
       </Badge>
