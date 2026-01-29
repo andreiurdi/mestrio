@@ -6,11 +6,7 @@ interface LogoProps {
   showTagline?: boolean;
 }
 
-export function Logo({
-  variant = "horizontal",
-  className = "",
-  showTagline = false,
-}: LogoProps) {
+export function Logo({ variant = "horizontal", className = "", showTagline = false }: LogoProps) {
   const getLogoPath = () => {
     switch (variant) {
       case "icon":
@@ -38,10 +34,7 @@ export function Logo({
   const sizeProps = getSizeProps();
 
   return (
-    <Link
-      href="/"
-      className={`inline-flex flex-col items-center gap-2 shrink-0 ${className}`}
-    >
+    <Link href="/" className={`inline-flex flex-col items-center gap-2 shrink-0 ${className}`}>
       <img
         src={getLogoPath()}
         alt="Mestrio"
@@ -53,11 +46,7 @@ export function Logo({
           height: "auto",
         }}
       />
-      {showTagline && variant === "vertical" && (
-        <span className="text-xs text-muted-foreground font-medium">
-          Meșteri locali, la un click
-        </span>
-      )}
+      {showTagline && variant === "vertical" && <span className="text-xs text-muted-foreground font-medium">Meșteri locali, la un click</span>}
     </Link>
   );
 }
