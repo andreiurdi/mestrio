@@ -1,65 +1,55 @@
-import { Search, MessageSquare, CheckCircle, Shield, Star, MapPin } from "lucide-react";
+import { Search, MessageSquare, CheckCircle } from "lucide-react";
 
-const features = [
+const steps = [
   {
     icon: Search,
-    number: "1",
     title: "Search",
-    description: "Choose the service you need and enter your location",
+    description: "Tell us what you need and where you are. Browse verified professionals in your area.",
   },
   {
     icon: MessageSquare,
-    number: "2",
-    title: "Message",
-    description: "Contact workers directly to discuss your project",
+    title: "Connect",
+    description: "Message workers directly, discuss your project, and get free quotes with no obligation.",
   },
   {
     icon: CheckCircle,
-    number: "3",
-    title: "Get the job done",
-    description: "Hire the right professional for your needs",
-  },
-  {
-    icon: Shield,
-    number: "4",
-    title: "Verified professionals",
-    description: "All workers are verified before joining the platform",
-  },
-  {
-    icon: Star,
-    number: "5",
-    title: "Real reviews",
-    description: "Read honest feedback from previous customers",
-  },
-  {
-    icon: MapPin,
-    number: "6",
-    title: "Local workers",
-    description: "Connect with professionals in your area",
+    title: "Hire",
+    description: "Choose the right professional based on reviews, ratings, and pricing. Get the job done right.",
   },
 ];
 
 export function HowItWorksSection() {
   return (
-    <section className="px-6 py-20 bg-accent/5">
+    <section className="px-6 py-20 md:py-28 bg-muted/30">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
-          How it works
-        </h2>
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+            How it works
+          </h2>
+          <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto">
+            Find and hire trusted construction professionals in three simple steps
+          </p>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-          {features.map((feature, index) => {
-            const Icon = feature.icon;
+          {steps.map((step, index) => {
+            const Icon = step.icon;
             return (
-              <div key={index} className="flex flex-col items-center text-center">
-                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                  <Icon className="w-8 h-8 text-primary" />
+              <div key={index} className="flex flex-col items-center text-center relative">
+                {index < steps.length - 1 && (
+                  <div className="hidden md:block absolute top-12 left-[60%] w-full h-0.5 bg-border" />
+                )}
+                <div className="w-20 h-20 rounded-full bg-primary flex items-center justify-center mb-6 relative z-10 shadow-lg">
+                  <Icon className="w-10 h-10 text-primary-foreground" />
                 </div>
-                <h3 className="text-lg font-semibold mb-2">
-                  {feature.number}. {feature.title}
+                <div className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-secondary text-secondary-foreground font-bold mb-4 text-sm">
+                  {index + 1}
+                </div>
+                <h3 className="text-xl font-semibold mb-3">
+                  {step.title}
                 </h3>
-                <p className="text-muted-foreground text-sm">
-                  {feature.description}
+                <p className="text-muted-foreground">
+                  {step.description}
                 </p>
               </div>
             );
