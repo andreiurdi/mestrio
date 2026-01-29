@@ -40,16 +40,16 @@ export function Logo({ variant = "horizontal", className = "", showTagline = fal
     );
   }
 
-  // Horizontal variant (default)
+  // Horizontal variant (default) - with title next to house
   return (
-    <Link href="/" className={`inline-flex items-center ${className}`}>
+    <Link href="/" className={`inline-flex items-center shrink-0 ${className}`}>
       <Image
-        src="https://cdn.builder.io/api/v1/image/assets%2Fadadeadcfd004af090dcf2211799ead3%2Fbb09e30b392a4eff883c1d05f685b763?format=webp&width=800&height=1200"
+        src="https://cdn.builder.io/api/v1/image/assets%2Fadadeadcfd004af090dcf2211799ead3%2F309c6231c81b488cb75d5b7752a6a0fe?format=webp&width=800&height=1200"
         alt="Mestrio"
-        width={200}
-        height={80}
+        width={150}
+        height={50}
         priority
-        style={{ width: "auto", height: "auto" }}
+        style={{ width: "auto", height: "auto", maxHeight: "40px" }}
       />
     </Link>
   );
