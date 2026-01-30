@@ -15,18 +15,12 @@ export function AuthLayout({ children }: AuthLayoutProps) {
           {/* Logo */}
           <Link href="/" className="inline-flex items-center gap-2 group">
             <div className="relative h-8 w-32">
-              <img
-                src="/brand/mestrio-logo-horizontal.png"
-                alt="Mestrio"
-                className="h-full w-full object-contain transition-opacity duration-200 group-hover:opacity-80"
-              />
+              <img src="/brand/mestrio-logo-horizontal.png" alt="Mestrio" className="h-full w-full object-contain transition-opacity duration-200 group-hover:opacity-80" />
             </div>
           </Link>
 
           {/* Form Content */}
-          <div className="space-y-8">
-            {children}
-          </div>
+          <div className="space-y-8">{children}</div>
         </div>
       </div>
 
