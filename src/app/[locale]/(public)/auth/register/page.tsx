@@ -6,13 +6,9 @@ import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useAuth } from "@/features/auth/context/AuthContext";
-import { AuthLayout } from "@/features/auth/components/AuthLayout";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { SocialLoginButtons } from "@/features/auth/components/SocialLoginButtons";
-import { FormFieldError } from "@/components/auth/FormFieldError";
-import { registerSchema, type RegisterFormInputs } from "@/lib/auth-schemas";
+import { useAuth, AuthLayout, SocialLoginButtons, registerSchema, type RegisterFormInputs } from "@/features/auth";
+import { Button, Input } from "@/components";
+import FormFieldError from "@/components/auth/FormFieldError";
 
 export default function RegisterPage() {
   const t = useTranslations("auth.register");

@@ -2,8 +2,8 @@
 
 import React, { createContext, useContext, useState, useCallback, useEffect } from "react";
 import { AxiosError } from "axios";
-import axiosInstance from "@/lib/axios";
-import type { User, UserRole } from "@/lib/types/user";
+import { axiosInstance } from "@/lib/api";
+import type { User, UserRole } from "@/lib/types";
 
 export interface AuthContextType {
   user: User | null;
