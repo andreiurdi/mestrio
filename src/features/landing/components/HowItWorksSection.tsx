@@ -38,8 +38,10 @@ export function HowItWorksSection() {
                 <div className="w-20 h-20 rounded-full bg-primary flex items-center justify-center mb-6 relative z-10 shadow-lg">
                   <Icon className="w-10 h-10 text-primary-foreground" />
                 </div>
-                <div className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-secondary text-secondary-foreground font-bold mb-4 text-sm">{index + 1}</div>
-                <h3 className="text-xl font-semibold mb-3">{t(`steps.${step.key}.title`)}</h3>
+                <div className="flex gap-1">
+                  <h3 className="inline-flex items-center justify-center text-xl font-semibold mb-3">{index + 1}.</h3>
+                  <h3 className="text-xl font-semibold mb-3">{t(`steps.${step.key}.title`)}</h3>
+                </div>
                 <p className="text-muted-foreground">{t(`steps.${step.key}.description`)}</p>
               </div>
             );

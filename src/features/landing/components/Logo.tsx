@@ -10,12 +10,12 @@ export function Logo({ variant = "horizontal", className = "", showTagline = fal
   const getLogoPath = () => {
     switch (variant) {
       case "icon":
-        return "/brand/mestrio_v3_icon.svg";
+        return "/brand/mestrio_v3_icon.png";
       case "vertical":
-        return "/brand/mestrio_v2_full.svg";
+        return "/brand/mestrio-logo-vertical.png";
       case "horizontal":
       default:
-        return "/brand/mestrio_v3_full.svg";
+        return "/brand/mestrio-logo-horizontal.png";
     }
   };
 
@@ -34,18 +34,8 @@ export function Logo({ variant = "horizontal", className = "", showTagline = fal
   const sizeProps = getSizeProps();
 
   return (
-    <Link href="/public" className={`inline-flex flex-col items-center gap-2 shrink-0 ${className}`}>
-      <img
-        src={getLogoPath()}
-        alt="Mestrio"
-        width={sizeProps.width}
-        height={sizeProps.height}
-        style={{
-          display: "block",
-          maxWidth: "100%",
-          height: "auto",
-        }}
-      />
+    <Link href="/" className={`inline-flex flex-col items-center gap-2 shrink-0 ${className}`}>
+      <img src={getLogoPath()} alt="Mestrio" />
       {/*{showTagline && variant === "vertical" && <span className="text-xs text-muted-foreground font-medium">Meșteri locali, la un click</span>}*/}
     </Link>
   );
