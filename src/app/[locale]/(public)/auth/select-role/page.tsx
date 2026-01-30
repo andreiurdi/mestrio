@@ -1,29 +1,44 @@
 "use client";
 
+import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { AuthLayout } from "@/features/auth/components/AuthLayout";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { setUserRole } from "@/lib/actions/auth";
+import type { UserRole } from "@/lib/types/user";
 
 export default function SelectRolePage() {
   const t = useTranslations("auth.selectRole");
   const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleRoleSelection = async (role: "client" | "provider") => {
+  const handleRoleSelection = async (role: UserRole) => {
+    if (isLoading) return;
+
+    setIsLoading(true);
     try {
-      // TODO: Implement actual role selection logic
-      // This should update the user's role in the database
-      console.log("Selected role:", role);
-      
-      // Redirect to appropriate dashboard
-      if (role === "client") {
-        router.push("/client");
+      // Update user role in the database/session
+      const result = await setUserRole(role);
+
+      if (result.success) {
+        // Redirect to appropriate dashboard
+        if (role === "client") {
+          router.push("/client");
+        } else if (role === "provider") {
+          router.push("/provider");
+        } else {
+          router.push("/admin");
+        }
+        router.refresh();
       } else {
-        router.push("/provider");
+        console.error("Failed to set role:", result.error);
       }
     } catch (error) {
       console.error("Role selection error:", error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -54,12 +69,13 @@ export default function SelectRolePage() {
                     type="button"
                     size="lg"
                     className="w-full h-12 text-base font-medium"
+                    disabled={isLoading}
                     onClick={(e) => {
                       e.stopPropagation();
                       handleRoleSelection("client");
                     }}
                   >
-                    {t("submitClient")}
+                    {isLoading ? "Loading..." : t("submitClient")}
                   </Button>
                 </div>
               </div>
@@ -83,12 +99,13 @@ export default function SelectRolePage() {
                     type="button"
                     size="lg"
                     className="w-full h-12 text-base font-medium"
+                    disabled={isLoading}
                     onClick={(e) => {
                       e.stopPropagation();
                       handleRoleSelection("provider");
                     }}
                   >
-                    {t("submitProvider")}
+                    {isLoading ? "Loading..." : t("submitProvider")}
                   </Button>
                 </div>
               </div>
