@@ -1,0 +1,89 @@
+{
+  "header": {
+    "signIn": "Autentificare",
+    "getStarted": "Începe acum"
+  },
+  "hero": {
+    "tagline": "De încredere pentru peste 10.000 de proprietari",
+    "title": "Găsește maeștri verificați în zona ta",
+    "description": "Conectează-te cu electricieni, instalatori, pictori și dulgheri calificați. Obține oferte, citește recenzii și angajează cu încredere.",
+    "features": {
+      "verified": "Profesioniști verificați",
+      "reviews": "Recenzii reale de clienți",
+      "messaging": "Mesagerie instantanee"
+    },
+    "form": {
+      "serviceLabel": "Ce serviciu ai nevoie?",
+      "servicePlaceholder": "De ex., Electrician, Instalator, Pictor",
+      "locationLabel": "Unde ai nevoie de serviciu?",
+      "locationPlaceholder": "Introdu orașul sau codul tău poștal",
+      "submit": "Găsește maeștri locali"
+    }
+  },
+  "howItWorks": {
+    "title": "Cum funcționează",
+    "description": "Găsește și angajează profesioniști de încredere în trei pași simpli",
+    "steps": {
+      "search": {
+        "title": "Caută",
+        "description": "Spune-ne ce ai nevoie și unde ești. Răsfoiește profesioniștii verificați din zona ta."
+      },
+      "connect": {
+        "title": "Conectează-te",
+        "description": "Comunică direct cu maeștrii, discută despre proiectul tău și obține oferte gratuite fără obligații."
+      },
+      "hire": {
+        "title": "Angajează",
+        "description": "Alege profesionistul potrivit pe baza recenziilor, evaluărilor și prețurilor. Termină lucrarea corect."
+      }
+    }
+  },
+  "features": {
+    "title": "De ce să alegi Mestrio?",
+    "description": "Facem găsirea și angajarea profesioniștilor în construcții simplă, sigură și de încredere",
+    "items": {
+      "verified": {
+        "title": "Profesioniști Verificați",
+        "description": "Toți maeștrii suferă verificări de antecedente minuțioase și verificare înainte de a se alătura platformei."
+      },
+      "reviews": {
+        "title": "Recenzii Reale",
+        "description": "Citește feedback-ul sincer de la clienții anteriori pentru a lua decizii informate de angajare."
+      },
+      "local": {
+        "title": "Maeștri Locali",
+        "description": "Găsește profesioniști în zona ta care înțeleg codurile locale de construcție și cerințele."
+      },
+      "response": {
+        "title": "Răspuns Rapid",
+        "description": "Obține răspunsuri în ore, nu în zile. Cei mai mulți maeștri răspund în 24 de ore."
+      },
+      "pricing": {
+        "title": "Prețuri Competitive",
+        "description": "Compară ofertele de la mai mulți profesioniști pentru a obține cea mai bună valoare pentru proiectul tău."
+      },
+      "communication": {
+        "title": "Comunicare Directă",
+        "description": "Comunică direct cu maeștrii prin platforma noastră. Niciun intermediar, nicio întârziere."
+      }
+    }
+  },
+  "cta": {
+    "title": "Gata să începi?",
+    "description": "Alătură-te miilor de proprietari care au găsit profesioniști de încredere prin Mestrio. Começe-ți proiectul azi.",
+    "noCredit": "Fără card de credit • Gratuit să răsfoiești • Mesagerie instantanee",
+    "findWorkers": "Găsește maeștri locali",
+    "joinProfessional": "Alătură-te ca profesionist"
+  },
+  "footer": {
+    "description": "Conectând proprietari cu profesioniști de încredere din construcții. Construiește proiectul tău cu încredere.",
+    "links": {
+      "about": "Despre",
+      "howItWorks": "Cum funcționează",
+      "privacyPolicy": "Politica de Confidențialitate",
+      "termsOfService": "Termeni de Serviciu",
+      "contact": "Contact"
+    },
+    "copyright": "© {year} Mestrio. Toate drepturile rezervate."
+  }
+}
