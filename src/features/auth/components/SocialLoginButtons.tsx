@@ -1,8 +1,11 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 
 export function SocialLoginButtons() {
+  const t = useTranslations("auth");
+
   const handleGoogleLogin = () => {
     // TODO: Implement Google OAuth
     console.log("Google login");
@@ -20,7 +23,10 @@ export function SocialLoginButtons() {
           <span className="w-full border-t border-border" />
         </div>
         <div className="relative flex justify-center text-sm">
-          <span className="bg-background px-4 text-muted-foreground">Or continue with</span>
+          <span className="bg-background px-4 text-muted-foreground">
+            {/* Using a generic text since different pages might have different keys */}
+            Or continue with
+          </span>
         </div>
       </div>
 
@@ -44,7 +50,7 @@ export function SocialLoginButtons() {
               fill="#EA4335"
             />
           </svg>
-          Google
+          {t("social.google")}
         </Button>
 
         <Button type="button" variant="outline" onClick={handleFacebookLogin} className="w-full">
@@ -61,7 +67,7 @@ export function SocialLoginButtons() {
               </clipPath>
             </defs>
           </svg>
-          Facebook
+          {t("social.facebook")}
         </Button>
       </div>
     </div>
