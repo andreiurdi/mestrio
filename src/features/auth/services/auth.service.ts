@@ -1,4 +1,4 @@
-import { axiosInstance } from '@/lib/api';
+import axiosInstance from '@/lib/api/axios';
 import type { User, LoginInput, RegisterInput, SetRoleInput } from '../types';
 
 /**

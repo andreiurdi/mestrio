@@ -2,7 +2,7 @@
 
 import React, { createContext, useContext, useState, useCallback, useEffect } from "react";
 import { AxiosError } from "axios";
-import { axiosInstance } from "@/lib/api";
+import axiosInstance from "@/lib/api/axios";
 import type { User, UserRole } from "@/lib/types";
 
 export interface AuthContextType {
