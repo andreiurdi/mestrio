@@ -43,12 +43,8 @@ export default function ForgotPasswordPage() {
       <div className="space-y-8">
         {/* Heading */}
         <div className="space-y-2">
-          <h2 className="text-3xl font-medium text-foreground tracking-wide">
-            {submitted ? t("checkEmail") : t("title")}
-          </h2>
-          <p className="text-sm text-muted-foreground">
-            {submitted ? t("checkEmailDescription") : t("description")}
-          </p>
+          <h2 className="text-3xl font-medium text-foreground tracking-wide">{submitted ? t("checkEmail") : t("title")}</h2>
+          <p className="text-sm text-muted-foreground">{submitted ? t("checkEmailDescription") : t("description")}</p>
         </div>
 
         {!submitted ? (
@@ -72,12 +68,7 @@ export default function ForgotPasswordPage() {
               </div>
 
               {/* Submit Button */}
-              <Button
-                type="submit"
-                size="lg"
-                className="w-full h-12 text-base font-medium"
-                disabled={isSubmitting}
-              >
+              <Button type="submit" size="lg" className="w-full h-12 text-base font-medium" disabled={isSubmitting}>
                 {isSubmitting ? "Loading..." : t("submit")}
               </Button>
             </form>
@@ -93,9 +84,7 @@ export default function ForgotPasswordPage() {
           <div className="space-y-6">
             {/* Success message */}
             <div className="rounded-lg border border-border bg-muted/50 p-4">
-              <p className="text-sm text-foreground">
-                {t("checkEmailDescription")}
-              </p>
+              <p className="text-sm text-foreground">{t("checkEmailDescription")}</p>
             </div>
 
             {/* Back to login button */}
@@ -108,10 +97,7 @@ export default function ForgotPasswordPage() {
             {/* Resend link */}
             <p className="text-center text-sm text-muted-foreground">
               {t("didNotReceive")}{" "}
-              <button
-                onClick={() => setSubmitted(false)}
-                className="font-medium text-primary hover:underline"
-              >
+              <button onClick={() => setSubmitted(false)} className="font-medium text-primary hover:underline">
                 {t("tryAgain")}
               </button>
             </p>

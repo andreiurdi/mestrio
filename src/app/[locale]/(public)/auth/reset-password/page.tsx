@@ -51,12 +51,8 @@ export default function ResetPasswordPage() {
       <AuthLayout>
         <div className="space-y-8">
           <div className="space-y-2">
-            <h2 className="text-3xl font-medium text-foreground tracking-wide">
-              {t("invalidLink")}
-            </h2>
-            <p className="text-sm text-muted-foreground">
-              {t("invalidLinkDescription")}
-            </p>
+            <h2 className="text-3xl font-medium text-foreground tracking-wide">{t("invalidLink")}</h2>
+            <p className="text-sm text-muted-foreground">{t("invalidLinkDescription")}</p>
           </div>
 
           <Link href="/auth/forgot-password" className="block">
@@ -74,12 +70,8 @@ export default function ResetPasswordPage() {
       <div className="space-y-8">
         {/* Heading */}
         <div className="space-y-2">
-          <h2 className="text-3xl font-medium text-foreground tracking-wide">
-            {submitted ? t("success") : t("title")}
-          </h2>
-          <p className="text-sm text-muted-foreground">
-            {submitted ? t("successDescription") : t("description")}
-          </p>
+          <h2 className="text-3xl font-medium text-foreground tracking-wide">{submitted ? t("success") : t("title")}</h2>
+          <p className="text-sm text-muted-foreground">{submitted ? t("successDescription") : t("description")}</p>
         </div>
 
         {!submitted ? (
@@ -98,9 +90,7 @@ export default function ResetPasswordPage() {
                   className={`h-11 ${errors.password ? "border-destructive" : ""}`}
                   aria-invalid={errors.password ? "true" : "false"}
                 />
-                {!errors.password && (
-                  <p className="text-xs text-muted-foreground">{t("passwordHint")}</p>
-                )}
+                {!errors.password && <p className="text-xs text-muted-foreground">{t("passwordHint")}</p>}
                 <FormFieldError message={errors.password?.message} />
               </div>
 
@@ -120,12 +110,7 @@ export default function ResetPasswordPage() {
               </div>
 
               {/* Submit Button */}
-              <Button
-                type="submit"
-                size="lg"
-                className="w-full h-12 text-base font-medium"
-                disabled={isSubmitting}
-              >
+              <Button type="submit" size="lg" className="w-full h-12 text-base font-medium" disabled={isSubmitting}>
                 {isSubmitting ? "Loading..." : t("submit")}
               </Button>
             </form>
