@@ -39,12 +39,8 @@ export default function ResetPasswordPage() {
       <AuthLayout>
         <div className="space-y-8">
           <div className="space-y-2">
-            <h2 className="text-3xl font-medium text-foreground tracking-wide">
-              Invalid reset link
-            </h2>
-            <p className="text-sm text-muted-foreground">
-              This password reset link is invalid or has expired.
-            </p>
+            <h2 className="text-3xl font-medium text-foreground tracking-wide">Invalid reset link</h2>
+            <p className="text-sm text-muted-foreground">This password reset link is invalid or has expired.</p>
           </div>
 
           <Link href="/auth/forgot-password" className="block">
@@ -62,14 +58,8 @@ export default function ResetPasswordPage() {
       <div className="space-y-8">
         {/* Heading */}
         <div className="space-y-2">
-          <h2 className="text-3xl font-medium text-foreground tracking-wide">
-            {submitted ? "Password reset successful" : "Reset your password"}
-          </h2>
-          <p className="text-sm text-muted-foreground">
-            {submitted
-              ? "Your password has been successfully reset. Redirecting to login..."
-              : "Enter your new password below"}
-          </p>
+          <h2 className="text-3xl font-medium text-foreground tracking-wide">{submitted ? "Password reset successful" : "Reset your password"}</h2>
+          <p className="text-sm text-muted-foreground">{submitted ? "Your password has been successfully reset. Redirecting to login..." : "Enter your new password below"}</p>
         </div>
 
         {!submitted ? (
@@ -78,61 +68,30 @@ export default function ResetPasswordPage() {
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Password Field */}
               <div className="space-y-2">
-                <label
-                  htmlFor="password"
-                  className="text-sm font-normal text-foreground"
-                >
+                <label htmlFor="password" className="text-sm font-normal text-foreground">
                   New Password
                 </label>
-                <Input
-                  id="password"
-                  type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                  className="h-11"
-                  minLength={8}
-                />
-                <p className="text-xs text-muted-foreground">
-                  Must be at least 8 characters
-                </p>
+                <Input id="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required className="h-11" minLength={8} />
+                <p className="text-xs text-muted-foreground">Must be at least 8 characters</p>
               </div>
 
               {/* Confirm Password Field */}
               <div className="space-y-2">
-                <label
-                  htmlFor="confirm-password"
-                  className="text-sm font-normal text-foreground"
-                >
+                <label htmlFor="confirm-password" className="text-sm font-normal text-foreground">
                   Confirm New Password
                 </label>
-                <Input
-                  id="confirm-password"
-                  type="password"
-                  value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                  required
-                  className="h-11"
-                  minLength={8}
-                />
+                <Input id="confirm-password" type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required className="h-11" minLength={8} />
               </div>
 
               {/* Submit Button */}
-              <Button
-                type="submit"
-                size="lg"
-                className="w-full h-12 text-base font-medium"
-              >
+              <Button type="submit" size="lg" className="w-full h-12 text-base font-medium">
                 Reset password
               </Button>
             </form>
 
             {/* Back to login link */}
             <p className="text-center text-sm text-muted-foreground">
-              <Link
-                href="/auth/login"
-                className="font-medium text-primary hover:underline"
-              >
+              <Link href="/auth/login" className="font-medium text-primary hover:underline">
                 Back to login
               </Link>
             </p>
@@ -141,9 +100,7 @@ export default function ResetPasswordPage() {
           <div className="space-y-6">
             {/* Success message */}
             <div className="rounded-lg border border-border bg-muted/50 p-4">
-              <p className="text-sm text-foreground">
-                You can now use your new password to log in to your account.
-              </p>
+              <p className="text-sm text-foreground">You can now use your new password to log in to your account.</p>
             </div>
 
             {/* Login button */}

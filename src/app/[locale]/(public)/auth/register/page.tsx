@@ -28,98 +28,46 @@ export default function RegisterPage() {
       <div className="space-y-8">
         {/* Heading */}
         <div className="space-y-2">
-          <h2 className="text-3xl font-medium text-foreground tracking-wide">
-            Create an account
-          </h2>
-          <p className="text-sm text-muted-foreground">
-            Enter your information to create your account
-          </p>
+          <h2 className="text-3xl font-medium text-foreground tracking-wide">Create an account</h2>
+          <p className="text-sm text-muted-foreground">Enter your information to create your account</p>
         </div>
 
         {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Name Field */}
           <div className="space-y-2">
-            <label
-              htmlFor="name"
-              className="text-sm font-normal text-foreground"
-            >
+            <label htmlFor="name" className="text-sm font-normal text-foreground">
               Full Name
             </label>
-            <Input
-              id="name"
-              type="text"
-              placeholder="John Doe"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-              className="h-11"
-            />
+            <Input id="name" type="text" placeholder="John Doe" value={name} onChange={(e) => setName(e.target.value)} required className="h-11" />
           </div>
 
           {/* Email Field */}
           <div className="space-y-2">
-            <label
-              htmlFor="email"
-              className="text-sm font-normal text-foreground"
-            >
+            <label htmlFor="email" className="text-sm font-normal text-foreground">
               Email
             </label>
-            <Input
-              id="email"
-              type="email"
-              placeholder="m@example.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              className="h-11"
-            />
+            <Input id="email" type="email" placeholder="m@example.com" value={email} onChange={(e) => setEmail(e.target.value)} required className="h-11" />
           </div>
 
           {/* Password Field */}
           <div className="space-y-2">
-            <label
-              htmlFor="password"
-              className="text-sm font-normal text-foreground"
-            >
+            <label htmlFor="password" className="text-sm font-normal text-foreground">
               Password
             </label>
-            <Input
-              id="password"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              className="h-11"
-              minLength={8}
-            />
+            <Input id="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required className="h-11" minLength={8} />
           </div>
 
           {/* Confirm Password Field */}
           <div className="space-y-2">
-            <label
-              htmlFor="confirm-password"
-              className="text-sm font-normal text-foreground"
-            >
+            <label htmlFor="confirm-password" className="text-sm font-normal text-foreground">
               Confirm Password
             </label>
-            <Input
-              id="confirm-password"
-              type="password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              required
-              className="h-11"
-              minLength={8}
-            />
+            <Input id="confirm-password" type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required className="h-11" minLength={8} />
           </div>
 
           {/* Sign Up Button */}
-          <Button
-            type="submit"
-            size="lg"
-            className="w-full h-12 text-base font-medium"
-          >
+          <Button type="submit" size="lg" className="w-full h-12 text-base font-medium">
             Sign up
           </Button>
         </form>
@@ -130,10 +78,7 @@ export default function RegisterPage() {
         {/* Login link */}
         <p className="text-center text-sm text-muted-foreground">
           Already have an account?{" "}
-          <Link
-            href="/auth/login"
-            className="font-medium text-primary underline hover:no-underline"
-          >
+          <Link href="/auth/login" className="font-medium text-primary underline hover:no-underline">
             Sign in
           </Link>
         </p>

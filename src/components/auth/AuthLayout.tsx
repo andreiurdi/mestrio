@@ -13,11 +13,9 @@ export function AuthLayout({ children }: AuthLayoutProps) {
         <div className="w-full max-w-md mx-auto">
           {/* Logo */}
           <Link href="/" className="inline-block mb-12">
-            <h1 className="text-2xl font-semibold text-foreground tracking-tight">
-              Mestrio
-            </h1>
+            <h1 className="text-2xl font-semibold text-foreground tracking-tight">Mestrio</h1>
           </Link>
-          
+
           {/* Form Content */}
           {children}
         </div>
