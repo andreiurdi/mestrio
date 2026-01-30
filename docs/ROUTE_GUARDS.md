@@ -19,7 +19,7 @@ User roles are defined in `src/lib/types/user.ts`.
 ## Protected Routes
 
 - `/client/*` - Client dashboard and related pages
-- `/provider/*` - Provider dashboard and related pages  
+- `/provider/*` - Provider dashboard and related pages
 - `/admin/*` - Admin dashboard and related pages
 - `/auth/select-role` - Role selection page (only for authenticated users without a role)
 
@@ -53,6 +53,7 @@ The middleware enforces the following rules:
 ### Authentication
 
 Currently using cookie-based authentication (placeholder implementation):
+
 - User data is stored in a `user` cookie
 - Cookie includes user ID, email, name, and role
 
@@ -86,7 +87,7 @@ Redirected to appropriate dashboard
 
 To test the route guards:
 
-1. **Unauthenticated Access**: 
+1. **Unauthenticated Access**:
    - Try accessing `/client`, `/provider`, or `/admin` without being logged in
    - Should redirect to `/auth/login`
 

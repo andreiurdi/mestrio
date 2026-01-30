@@ -10,14 +10,14 @@ export async function getCurrentUser(): Promise<User | null> {
   // TODO: Replace with actual auth implementation
   // For now, return null as no auth is implemented
   // This would typically check cookies/session and validate the user
-  
+
   const cookieStore = await cookies();
   const userCookie = cookieStore.get("user");
-  
+
   if (!userCookie) {
     return null;
   }
-  
+
   try {
     const user = JSON.parse(userCookie.value);
     return user;
