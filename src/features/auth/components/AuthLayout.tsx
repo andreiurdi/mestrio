@@ -12,7 +12,7 @@ export function AuthLayout({ children }: AuthLayoutProps) {
       <div className="flex-1 flex flex-col justify-center px-6 py-12 lg:px-16 xl:px-24">
         <div className="w-full max-w-md mx-auto">
           {/* Logo */}
-          <Link href="/" className="inline-block mb-12">
+          <Link href="/public" className="inline-block mb-12">
             <h1 className="text-2xl font-semibold text-foreground tracking-tight">Mestrio</h1>
           </Link>
 
@@ -23,13 +23,7 @@ export function AuthLayout({ children }: AuthLayoutProps) {
 
       {/* Right side - Image */}
       <div className="hidden lg:block lg:flex-1 relative bg-muted">
-        <Image
-          src="https://cdn.builder.io/api/v1/image/assets%2Fadadeadcfd004af090dcf2211799ead3%2Fc995a8d330514cd8a1b953b8e0b45fb7?format=webp&width=800&height=1200"
-          alt="Authentication illustration"
-          fill
-          className="object-cover"
-          priority
-        />
+        <Image src="/images/authentication-image.png" alt="Authentication illustration" fill className="object-cover" priority />
       </div>
     </div>
   );

@@ -2,10 +2,10 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { AuthLayout } from "@/components/auth/AuthLayout";
+import { AuthLayout } from "@/features/auth/components/AuthLayout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { SocialLoginButtons } from "@/components/auth/SocialLoginButtons";
+import { SocialLoginButtons } from "@/features/auth/components/SocialLoginButtons";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
