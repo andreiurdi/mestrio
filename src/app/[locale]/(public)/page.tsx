@@ -1,10 +1,4 @@
-import {
-  HeroSection,
-  HowItWorksSection,
-  FeaturesSection,
-  CTASection,
-  Footer,
-} from "@/components/features/landing";
+import { HeroSection, HowItWorksSection, FeaturesSection, CTASection, Footer } from "@/components/features/landing";
 
 export default function Home() {
   return (

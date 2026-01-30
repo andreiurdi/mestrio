@@ -14,10 +14,7 @@ interface RootLayoutProps {
   params: Promise<{ locale: string }>;
 }
 
-export default async function RootLayout({
-  children,
-  params,
-}: RootLayoutProps) {
+export default async function RootLayout({ children, params }: RootLayoutProps) {
   const { locale } = await params;
 
   return (

@@ -16,12 +16,7 @@ export function LanguageSwitcher() {
   };
 
   return (
-    <Button
-      variant="ghost"
-      size="sm"
-      onClick={toggleLanguage}
-      className="text-xs"
-    >
+    <Button variant="ghost" size="sm" onClick={toggleLanguage} className="text-xs">
       {locale === "en" ? "RO" : "EN"}
     </Button>
   );

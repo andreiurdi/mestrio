@@ -30,9 +30,7 @@ export function Footer() {
               {t("links.contact")}
             </a>
           </div>
-          <p className="text-sm text-muted-foreground">
-            {t("copyright", { year: currentYear })}
-          </p>
+          <p className="text-sm text-muted-foreground">{t("copyright", { year: currentYear })}</p>
         </div>
       </div>
     </footer>

@@ -7,10 +7,7 @@ interface LocaleLayoutProps {
   params: Promise<{ locale: string }>;
 }
 
-export default async function LocaleLayout({
-  children,
-  params,
-}: LocaleLayoutProps) {
+export default async function LocaleLayout({ children, params }: LocaleLayoutProps) {
   const messages = await getMessages();
   const locale = await getLocale();
 
