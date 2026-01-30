@@ -77,7 +77,7 @@ export default function ResetPasswordPage() {
         {!submitted ? (
           <>
             {/* Form */}
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6" noValidate>
               {/* Password Field */}
               <div className="space-y-2">
                 <label htmlFor="password" className="text-sm font-normal text-foreground">
