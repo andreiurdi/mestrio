@@ -16,15 +16,17 @@ export function PublicHeader() {
     return null;
   }
 
+  const locale = pathname?.split("/")[1] || "en";
+
   return (
     <header className="sticky top-0 z-50 h-16 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 flex items-center justify-between px-6">
       <Logo />
       <nav className="flex items-center gap-3">
         <LanguageSwitcher />
-        <Link href="/auth/login">
+        <Link href={`/${locale}/auth/login`}>
           <Button variant="ghost">{t("signIn")}</Button>
         </Link>
-        <Link href="/auth/register">
+        <Link href={`/${locale}/auth/register`}>
           <Button>{t("getStarted")}</Button>
         </Link>
       </nav>
