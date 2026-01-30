@@ -66,6 +66,9 @@ export default function RegisterPage() {
 
         {/* Form */}
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6" noValidate>
+          {/* Root Error */}
+          {errors.root && <FormFieldError message={errors.root.message} />}
+
           {/* Name Field */}
           <div className="space-y-2">
             <label htmlFor="name" className="text-sm font-normal text-foreground">
@@ -129,7 +132,7 @@ export default function RegisterPage() {
           </div>
 
           {/* Sign Up Button */}
-          <Button type="submit" size="lg" className="w-full h-12 text-base font-medium" disabled={isSubmitting}>
+          <Button type="submit" size="lg" className="w-full h-12 text-base font-medium" disabled={isSubmitting || isAuthenticated}>
             {isSubmitting ? "Loading..." : t("submit")}
           </Button>
         </form>
