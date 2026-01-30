@@ -1,2 +1,5 @@
 // API Utilities
-export { default as axiosInstance } from './axios';
+import axiosInstanceDefault from './axios';
+
+export const axiosInstance = axiosInstanceDefault;
+export { default } from './axios';
