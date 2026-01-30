@@ -57,15 +57,9 @@ export default function SelectRolePage() {
         <div className="space-y-4">
           {/* Client Role Card */}
           <Card className="border-2 hover:border-primary transition-colors cursor-pointer group">
-            <button
-              onClick={() => handleRoleSelection("client")}
-              className="w-full p-6 text-left"
-              type="button"
-            >
+            <div onClick={() => handleRoleSelection("client")} className="w-full p-6 text-left" role="button">
               <div className="space-y-3">
-                <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
-                  {t("title")}
-                </h3>
+                <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">{t("title")}</h3>
                 <p className="text-sm text-muted-foreground">{t("description")}</p>
                 <div className="pt-2">
                   <Button
@@ -82,20 +76,14 @@ export default function SelectRolePage() {
                   </Button>
                 </div>
               </div>
-            </button>
+            </div>
           </Card>
 
           {/* Provider Role Card */}
           <Card className="border-2 hover:border-primary transition-colors cursor-pointer group">
-            <button
-              onClick={() => handleRoleSelection("provider")}
-              className="w-full p-6 text-left"
-              type="button"
-            >
+            <div onClick={() => handleRoleSelection("provider")} className="w-full p-6 text-left" role="button">
               <div className="space-y-3">
-                <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
-                  {t("titleProvider")}
-                </h3>
+                <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">{t("titleProvider")}</h3>
                 <p className="text-sm text-muted-foreground">{t("descriptionProvider")}</p>
                 <div className="pt-2">
                   <Button
@@ -112,7 +100,7 @@ export default function SelectRolePage() {
                   </Button>
                 </div>
               </div>
-            </button>
+            </div>
           </Card>
         </div>
       </div>
