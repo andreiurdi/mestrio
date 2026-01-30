@@ -169,6 +169,14 @@
     "social": {
       "google": "Google",
       "facebook": "Facebook"
+    },
+    "selectRole": {
+      "title": "Caut un muncitor",
+      "titleProvider": "Ofer servicii",
+      "description": "Găsește profesioniști locali și trimite-le mesaje despre locuri de muncă.",
+      "descriptionProvider": "Creează un profil și conectează-te cu oamenii care au nevoie de serviciile tale.",
+      "submitClient": "Continuă ca client",
+      "submitProvider": "Continuă ca profesionist"
     }
   }
 }

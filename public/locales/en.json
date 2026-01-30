@@ -169,6 +169,14 @@
     "social": {
       "google": "Google",
       "facebook": "Facebook"
+    },
+    "selectRole": {
+      "title": "I'm looking for a worker",
+      "titleProvider": "I offer services",
+      "description": "Find local professionals and message them about jobs.",
+      "descriptionProvider": "Create a profile and connect with people who need your services.",
+      "submitClient": "Continue as client",
+      "submitProvider": "Continue as professional"
     }
   }
 }

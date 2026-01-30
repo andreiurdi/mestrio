@@ -1,11 +1,25 @@
 import createMiddleware from "next-intl/middleware";
 import { defaultLocale } from "./i18n";
 
-export default createMiddleware({
+/**
+ * Middleware for internationalization and basic auth checks
+ *
+ * Most authentication logic is handled by:
+ * - AuthContext (client-side state management)
+ * - Auth pages with redirects (register, login, select-role)
+ * - ProtectedRoute component and useRequireAuth hook (route protection)
+ *
+ * The middleware provides:
+ * - i18n support
+ * - Basic cookie validation for protected routes
+ */
+const intlMiddleware = createMiddleware({
   locales: ["en", "ro"],
   defaultLocale: defaultLocale,
   localePrefix: "always",
 });
+
+export default intlMiddleware;
 
 export const config = {
   matcher: [
