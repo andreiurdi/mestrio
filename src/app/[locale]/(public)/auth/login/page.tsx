@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useAuth, AuthLayout, SocialLoginButtons, loginSchema, type LoginFormInputs } from "@/features/auth";
 import { Button, Input } from "@/components";
-import { FormFieldError } from "@/components/auth/FormFieldError";
+import { FormFieldError } from "@/components/auth";
 
 export default function LoginPage() {
   const t = useTranslations("auth.login");
