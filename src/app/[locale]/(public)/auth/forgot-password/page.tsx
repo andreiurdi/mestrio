@@ -2,19 +2,40 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { AuthLayout } from "@/features/auth/components/AuthLayout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { FormFieldError } from "@/components/auth/FormFieldError";
+import { forgotPasswordSchema, type ForgotPasswordFormInputs } from "@/lib/auth-schemas";
 
 export default function ForgotPasswordPage() {
-  const [email, setEmail] = useState("");
+  const t = useTranslations("auth.forgotPassword");
   const [submitted, setSubmitted] = useState(false);
+  const [submittedEmail, setSubmittedEmail] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // TODO: Implement forgot password logic
-    console.log("Forgot password:", { email });
-    setSubmitted(true);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    watch,
+  } = useForm<ForgotPasswordFormInputs>({
+    resolver: zodResolver(forgotPasswordSchema),
+  });
+
+  const email = watch("email");
+
+  const onSubmit = async (data: ForgotPasswordFormInputs) => {
+    try {
+      // TODO: Implement actual forgot password logic
+      console.log("Forgot password:", data);
+      setSubmittedEmail(data.email);
+      setSubmitted(true);
+    } catch (error) {
+      console.error("Forgot password error:", error);
+    }
   };
 
   return (
@@ -22,34 +43,49 @@ export default function ForgotPasswordPage() {
       <div className="space-y-8">
         {/* Heading */}
         <div className="space-y-2">
-          <h2 className="text-3xl font-medium text-foreground tracking-wide">{submitted ? "Check your email" : "Forgot your password?"}</h2>
+          <h2 className="text-3xl font-medium text-foreground tracking-wide">
+            {submitted ? t("checkEmail") : t("title")}
+          </h2>
           <p className="text-sm text-muted-foreground">
-            {submitted ? "We've sent you a password reset link to your email address" : "Enter your email address and we'll send you a link to reset your password"}
+            {submitted ? t("checkEmailDescription") : t("description")}
           </p>
         </div>
 
         {!submitted ? (
           <>
             {/* Form */}
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               {/* Email Field */}
               <div className="space-y-2">
                 <label htmlFor="email" className="text-sm font-normal text-foreground">
-                  Email
+                  {t("email")}
                 </label>
-                <Input id="email" type="email" placeholder="m@example.com" value={email} onChange={(e) => setEmail(e.target.value)} required className="h-11" />
+                <Input
+                  id="email"
+                  type="email"
+                  placeholder={t("emailPlaceholder")}
+                  {...register("email")}
+                  className={`h-11 ${errors.email ? "border-destructive" : ""}`}
+                  aria-invalid={errors.email ? "true" : "false"}
+                />
+                <FormFieldError message={errors.email?.message} />
               </div>
 
               {/* Submit Button */}
-              <Button type="submit" size="lg" className="w-full h-12 text-base font-medium">
-                Send reset link
+              <Button
+                type="submit"
+                size="lg"
+                className="w-full h-12 text-base font-medium"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "Loading..." : t("submit")}
               </Button>
             </form>
 
             {/* Back to login link */}
             <p className="text-center text-sm text-muted-foreground">
               <Link href="/auth/login" className="font-medium text-primary hover:underline">
-                Back to login
+                {t("backToLogin")}
               </Link>
             </p>
           </>
@@ -58,22 +94,25 @@ export default function ForgotPasswordPage() {
             {/* Success message */}
             <div className="rounded-lg border border-border bg-muted/50 p-4">
               <p className="text-sm text-foreground">
-                If an account exists with the email <span className="font-medium">{email}</span>, you will receive a password reset link shortly.
+                {t("checkEmailDescription")}
               </p>
             </div>
 
             {/* Back to login button */}
             <Link href="/auth/login" className="block">
               <Button size="lg" className="w-full h-12 text-base font-medium">
-                Back to login
+                {t("backToLogin")}
               </Button>
             </Link>
 
             {/* Resend link */}
             <p className="text-center text-sm text-muted-foreground">
-              Didn&apos;t receive the email?{" "}
-              <button onClick={() => setSubmitted(false)} className="font-medium text-primary hover:underline">
-                Try again
+              {t("didNotReceive")}{" "}
+              <button
+                onClick={() => setSubmitted(false)}
+                className="font-medium text-primary hover:underline"
+              >
+                {t("tryAgain")}
               </button>
             </p>
           </div>
