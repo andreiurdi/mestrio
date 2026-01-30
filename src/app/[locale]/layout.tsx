@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getLocale } from "next-intl/server";
+import { AuthProvider } from "@/features/auth/context/AuthContext";
 
 interface LocaleLayoutProps {
   children: ReactNode;
@@ -13,7 +14,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
 
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
-      {children}
+      <AuthProvider>{children}</AuthProvider>
     </NextIntlClientProvider>
   );
 }
