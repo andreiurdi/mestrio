@@ -43,7 +43,7 @@ export function HeroSection() {
         </div>
       </div>
 
-      <form onSubmit={handleSearch} className="w-full max-w-3xl bg-card border border-border rounded-xl p-6 md:p-8 shadow-lg">
+      <form onSubmit={handleSearch} className="w-full max-w-3xl bg-card border border-border rounded-xl p-6 md:p-8 shadow-lg" noValidate>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
           <div className="flex flex-col gap-2">
             <label htmlFor="service-type" className="text-sm font-medium text-left">

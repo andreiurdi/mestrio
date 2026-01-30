@@ -85,5 +85,90 @@
       "contact": "Contact"
     },
     "copyright": "© {year} Mestrio. All rights reserved."
+  },
+  "auth": {
+    "login": {
+      "title": "Login to your account",
+      "description": "Enter your email below to login to your account",
+      "email": "Email",
+      "emailPlaceholder": "m@example.com",
+      "password": "Password",
+      "forgotPassword": "Forgot your password?",
+      "submit": "Login",
+      "orContinueWith": "Or continue with",
+      "noAccount": "Don't have an account?",
+      "signUp": "Sign up",
+      "validation": {
+        "emailRequired": "Email is required",
+        "emailInvalid": "Please enter a valid email",
+        "passwordRequired": "Password is required",
+        "passwordMinLength": "Password must be at least 8 characters"
+      }
+    },
+    "register": {
+      "title": "Create an account",
+      "description": "Enter your information to create your account",
+      "fullName": "Full Name",
+      "fullNamePlaceholder": "John Doe",
+      "email": "Email",
+      "emailPlaceholder": "m@example.com",
+      "password": "Password",
+      "confirmPassword": "Confirm Password",
+      "submit": "Sign up",
+      "orContinueWith": "Or continue with",
+      "hasAccount": "Already have an account?",
+      "signIn": "Sign in",
+      "validation": {
+        "nameRequired": "Full name is required",
+        "nameMinLength": "Name must be at least 2 characters",
+        "emailRequired": "Email is required",
+        "emailInvalid": "Please enter a valid email",
+        "passwordRequired": "Password is required",
+        "passwordMinLength": "Password must be at least 8 characters",
+        "passwordStrength": "Password must contain uppercase, lowercase, number, and special character",
+        "confirmPasswordRequired": "Please confirm your password",
+        "passwordsDoNotMatch": "Passwords do not match"
+      }
+    },
+    "forgotPassword": {
+      "title": "Forgot your password?",
+      "description": "Enter your email address and we'll send you a link to reset your password",
+      "checkEmail": "Check your email",
+      "checkEmailDescription": "We've sent you a password reset link to your email address",
+      "email": "Email",
+      "emailPlaceholder": "m@example.com",
+      "submit": "Send reset link",
+      "backToLogin": "Back to login",
+      "didNotReceive": "Didn't receive the email?",
+      "tryAgain": "Try again",
+      "validation": {
+        "emailRequired": "Email is required",
+        "emailInvalid": "Please enter a valid email"
+      }
+    },
+    "resetPassword": {
+      "title": "Reset your password",
+      "description": "Enter your new password below",
+      "success": "Password reset successful",
+      "successDescription": "Your password has been successfully reset. Redirecting to login...",
+      "invalidLink": "Invalid reset link",
+      "invalidLinkDescription": "This password reset link is invalid or has expired",
+      "newPassword": "New Password",
+      "confirmPassword": "Confirm New Password",
+      "passwordHint": "Must be at least 8 characters",
+      "submit": "Reset password",
+      "requestNewLink": "Request new link",
+      "continueToLogin": "Continue to login",
+      "validation": {
+        "passwordRequired": "Password is required",
+        "passwordMinLength": "Password must be at least 8 characters",
+        "confirmPasswordRequired": "Please confirm your password",
+        "passwordsDoNotMatch": "Passwords do not match"
+      }
+    },
+    "social": {
+      "google": "Google",
+      "facebook": "Facebook"
+    }
   }
 }

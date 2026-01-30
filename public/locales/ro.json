@@ -85,5 +85,90 @@
       "contact": "Contact"
     },
     "copyright": "© {year} Mestrio. Toate drepturile rezervate."
+  },
+  "auth": {
+    "login": {
+      "title": "Autentifică-te în cont",
+      "description": "Introdu emailul tău pentru a te autentifica în cont",
+      "email": "Email",
+      "emailPlaceholder": "m@example.com",
+      "password": "Parolă",
+      "forgotPassword": "Ai uitat parola?",
+      "submit": "Autentificare",
+      "orContinueWith": "Sau continuă cu",
+      "noAccount": "Nu ai cont?",
+      "signUp": "Înregistrează-te",
+      "validation": {
+        "emailRequired": "Email-ul este obligatoriu",
+        "emailInvalid": "Te rog introdu un email valid",
+        "passwordRequired": "Parola este obligatorie",
+        "passwordMinLength": "Parola trebuie să aibă cel puțin 8 caractere"
+      }
+    },
+    "register": {
+      "title": "Creează un cont",
+      "description": "Introdu informațiile pentru a crea contul tău",
+      "fullName": "Nume Complet",
+      "fullNamePlaceholder": "Ion Popescu",
+      "email": "Email",
+      "emailPlaceholder": "m@example.com",
+      "password": "Parolă",
+      "confirmPassword": "Confirmă Parola",
+      "submit": "Înregistrează-te",
+      "orContinueWith": "Sau continuă cu",
+      "hasAccount": "Ai deja cont?",
+      "signIn": "Autentifică-te",
+      "validation": {
+        "nameRequired": "Numele complet este obligatoriu",
+        "nameMinLength": "Numele trebuie să aibă cel puțin 2 caractere",
+        "emailRequired": "Email-ul este obligatoriu",
+        "emailInvalid": "Te rog introdu un email valid",
+        "passwordRequired": "Parola este obligatorie",
+        "passwordMinLength": "Parola trebuie să aibă cel puțin 8 caractere",
+        "passwordStrength": "Parola trebuie să conțină litere mari, litere mici, cifre și caractere speciale",
+        "confirmPasswordRequired": "Te rog confirmă parola",
+        "passwordsDoNotMatch": "Parolele nu se potrivesc"
+      }
+    },
+    "forgotPassword": {
+      "title": "Ai uitat parola?",
+      "description": "Introdu emailul tău și îți vom trimite un link pentru a reseta parola",
+      "checkEmail": "Verifică emailul",
+      "checkEmailDescription": "Îți am trimis un link de resetare a parolei pe emailul tău",
+      "email": "Email",
+      "emailPlaceholder": "m@example.com",
+      "submit": "Trimite link-ul de resetare",
+      "backToLogin": "Înapoi la autentificare",
+      "didNotReceive": "Nu ai primit emailul?",
+      "tryAgain": "Încearcă din nou",
+      "validation": {
+        "emailRequired": "Email-ul este obligatoriu",
+        "emailInvalid": "Te rog introdu un email valid"
+      }
+    },
+    "resetPassword": {
+      "title": "Resetează parola",
+      "description": "Introdu noua parolă mai jos",
+      "success": "Parola a fost resetată cu succes",
+      "successDescription": "Parola ta a fost resetată cu succes. Se redirecționează la autentificare...",
+      "invalidLink": "Link de resetare invalid",
+      "invalidLinkDescription": "Acest link de resetare a parolei este invalid sau a expirat",
+      "newPassword": "Parolă Nouă",
+      "confirmPassword": "Confirmă Parolă Nouă",
+      "passwordHint": "Trebuie să aibă cel puțin 8 caractere",
+      "submit": "Resetează parola",
+      "requestNewLink": "Cere link nou",
+      "continueToLogin": "Continuă la autentificare",
+      "validation": {
+        "passwordRequired": "Parola este obligatorie",
+        "passwordMinLength": "Parola trebuie să aibă cel puțin 8 caractere",
+        "confirmPasswordRequired": "Te rog confirmă parola",
+        "passwordsDoNotMatch": "Parolele nu se potrivesc"
+      }
+    },
+    "social": {
+      "google": "Google",
+      "facebook": "Facebook"
+    }
   }
 }
