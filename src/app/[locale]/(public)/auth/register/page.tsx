@@ -1,10 +1,12 @@
 "use client";
 
+import { useEffect } from "react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useAuth } from "@/features/auth/context/AuthContext";
 import { AuthLayout } from "@/features/auth/components/AuthLayout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -15,19 +17,39 @@ import { registerSchema, type RegisterFormInputs } from "@/lib/auth-schemas";
 export default function RegisterPage() {
   const t = useTranslations("auth.register");
   const router = useRouter();
+  const { register: authRegister, error: authError, clearError, isAuthenticated, user } = useAuth();
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
+    setError,
   } = useForm<RegisterFormInputs>({
     resolver: zodResolver(registerSchema),
   });
 
+  // Redirect if already authenticated
+  useEffect(() => {
+    if (isAuthenticated && user?.role) {
+      router.push("/client"); // Redirect to appropriate dashboard
+    } else if (isAuthenticated && !user?.role) {
+      router.push("/auth/select-role");
+    }
+  }, [isAuthenticated, user, router]);
+
+  // Display auth error in form
+  useEffect(() => {
+    if (authError) {
+      setError("root", { message: authError });
+      clearError();
+    }
+  }, [authError, setError, clearError]);
+
   const onSubmit = async (data: RegisterFormInputs) => {
     try {
-      // TODO: Implement actual registration logic
-      console.log("Register:", data);
-      // router.push("/dashboard");
+      await authRegister(data.email, data.password, data.name);
+      // Middleware will handle redirect to select-role
+      router.push("/auth/select-role");
+      router.refresh();
     } catch (error) {
       console.error("Registration error:", error);
     }
