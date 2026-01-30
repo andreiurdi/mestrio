@@ -1,10 +1,12 @@
 "use client";
 
+import { useEffect } from "react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useAuth } from "@/features/auth/context/AuthContext";
 import { AuthLayout } from "@/features/auth/components/AuthLayout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -15,19 +17,38 @@ import { loginSchema, type LoginFormInputs } from "@/lib/auth-schemas";
 export default function LoginPage() {
   const t = useTranslations("auth.login");
   const router = useRouter();
+  const { login: authLogin, error: authError, clearError, isAuthenticated, user } = useAuth();
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
+    setError,
   } = useForm<LoginFormInputs>({
     resolver: zodResolver(loginSchema),
   });
 
+  // Redirect if already authenticated
+  useEffect(() => {
+    if (isAuthenticated && user?.role) {
+      router.push("/client"); // Redirect to appropriate dashboard
+    } else if (isAuthenticated && !user?.role) {
+      router.push("/auth/select-role");
+    }
+  }, [isAuthenticated, user, router]);
+
+  // Display auth error in form
+  useEffect(() => {
+    if (authError) {
+      setError("root", { message: authError });
+      clearError();
+    }
+  }, [authError, setError, clearError]);
+
   const onSubmit = async (data: LoginFormInputs) => {
     try {
-      // TODO: Implement actual login logic
-      console.log("Login:", data);
-      // router.push("/dashboard");
+      await authLogin(data.email, data.password);
+      // Middleware will handle redirect appropriately
+      router.refresh();
     } catch (error) {
       console.error("Login error:", error);
     }
@@ -44,6 +65,9 @@ export default function LoginPage() {
 
         {/* Form */}
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6" noValidate>
+          {/* Root Error */}
+          {errors.root && <FormFieldError message={errors.root.message} />}
+
           {/* Email Field */}
           <div className="space-y-2">
             <label htmlFor="email" className="text-sm font-normal text-foreground">
@@ -81,7 +105,7 @@ export default function LoginPage() {
           </div>
 
           {/* Login Button */}
-          <Button type="submit" size="lg" className="w-full h-12 text-base font-medium" disabled={isSubmitting}>
+          <Button type="submit" size="lg" className="w-full h-12 text-base font-medium" disabled={isSubmitting || isAuthenticated}>
             {isSubmitting ? "Loading..." : t("submit")}
           </Button>
         </form>
