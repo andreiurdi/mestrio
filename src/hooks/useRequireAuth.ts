@@ -42,9 +42,7 @@ export function useRequireAuth(options?: UseRequireAuthOptions) {
     if (requiredRole) {
       const allowedRoles = Array.isArray(requiredRole) ? requiredRole : [requiredRole];
       if (!allowedRoles.includes(user.role)) {
-        const finalRedirectPath =
-          redirectTo ||
-          (user.role === "admin" ? "/admin" : user.role === "provider" ? "/provider" : "/client");
+        const finalRedirectPath = redirectTo || (user.role === "admin" ? "/admin" : user.role === "provider" ? "/provider" : "/client");
         router.push(finalRedirectPath);
       }
     }
@@ -54,8 +52,6 @@ export function useRequireAuth(options?: UseRequireAuthOptions) {
     isLoading,
     isAuthenticated,
     user,
-    hasRequiredRole:
-      !requiredRole ||
-      (user?.role && (Array.isArray(requiredRole) ? requiredRole.includes(user.role) : requiredRole === user.role)),
+    hasRequiredRole: !requiredRole || (user?.role && (Array.isArray(requiredRole) ? requiredRole.includes(user.role) : requiredRole === user.role)),
   };
 }

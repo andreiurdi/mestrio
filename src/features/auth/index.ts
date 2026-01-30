@@ -9,19 +9,19 @@
  */
 
 // Re-export components
-export * from './components';
+export * from "./components";
 
 // Re-export hooks
-export { useAuth } from './hooks';
+export { useAuth } from "./hooks";
 
 // Re-export services
-export { authService } from './services';
+export { authService } from "./services";
 
 // Re-export types
-export type * from './types';
+export type * from "./types";
 
 // Re-export schemas
-export * from './schemas';
+export * from "./schemas";
 
 // Re-export context provider
-export { AuthProvider } from './context';
+export { AuthProvider } from "./context";

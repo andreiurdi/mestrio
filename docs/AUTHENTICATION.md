@@ -14,6 +14,7 @@ Mestrio uses a Context API-based authentication system with the following compon
 ### State Management (Context API)
 
 The `AuthContext` manages:
+
 - User state (id, email, name, role)
 - Loading states
 - Error handling
@@ -25,20 +26,22 @@ Located in: `src/features/auth/context/AuthContext.tsx`
 
 All endpoints are located in `src/app/api/auth/`:
 
-| Endpoint | Method | Purpose | TODO |
-|----------|--------|---------|------|
-| `/api/auth/register` | POST | Create new user account | Implement DB integration, password hashing |
-| `/api/auth/login` | POST | Authenticate user | Implement DB query, password verification |
-| `/api/auth/logout` | POST | Clear session | Clear DB session |
-| `/api/auth/set-role` | POST | Update user role | Persist role to database |
+| Endpoint             | Method | Purpose                 | TODO                                       |
+| -------------------- | ------ | ----------------------- | ------------------------------------------ |
+| `/api/auth/register` | POST   | Create new user account | Implement DB integration, password hashing |
+| `/api/auth/login`    | POST   | Authenticate user       | Implement DB query, password verification  |
+| `/api/auth/logout`   | POST   | Clear session           | Clear DB session                           |
+| `/api/auth/set-role` | POST   | Update user role        | Persist role to database                   |
 
 ### Cookies
 
 Authentication uses cookies to persist state between:
+
 - Server (middleware/API routes)
 - Client (browser/Context API)
 
 **Cookie Structure:**
+
 ```json
 {
   "id": "user_123",
@@ -58,16 +61,16 @@ Authentication uses cookies to persist state between:
 import { useAuth } from "@/features/auth/context/AuthContext";
 
 export function MyComponent() {
-  const { 
-    user,           // Current user or null
-    isAuthenticated,  // boolean
-    isLoading,      // boolean
-    error,          // error message or null
-    login,          // async (email, password) => Promise<void>
-    register,       // async (email, password, name) => Promise<void>
-    logout,         // async () => Promise<void>
-    setRole,        // async (role) => Promise<void>
-    clearError,     // () => void
+  const {
+    user, // Current user or null
+    isAuthenticated, // boolean
+    isLoading, // boolean
+    error, // error message or null
+    login, // async (email, password) => Promise<void>
+    register, // async (email, password, name) => Promise<void>
+    logout, // async () => Promise<void>
+    setRole, // async (role) => Promise<void>
+    clearError, // () => void
   } = useAuth();
 
   // Use the auth state and methods
@@ -191,9 +194,10 @@ Check if authenticated
 ### Cookie Management
 
 **Client-side (AuthContext):**
+
 ```typescript
 // Set cookie
-document.cookie = `user=${encodeURIComponent(JSON.stringify(user))}; path=/; max-age=${60*60*24*7}`;
+document.cookie = `user=${encodeURIComponent(JSON.stringify(user))}; path=/; max-age=${60 * 60 * 24 * 7}`;
 
 // Read cookie
 const userCookie = document.cookie
@@ -204,6 +208,7 @@ const user = JSON.parse(decodeURIComponent(userCookie));
 ```
 
 **Server-side (API routes):**
+
 ```typescript
 // Set cookie
 response.cookies.set("user", JSON.stringify(user), {
@@ -271,6 +276,7 @@ src/
 When integrating with a real backend/auth provider:
 
 ### Database Integration
+
 - [ ] Replace `/api/auth/register` with actual user creation
 - [ ] Implement password hashing (bcrypt, argon2, etc.)
 - [ ] Replace `/api/auth/login` with database query and password verification
@@ -278,12 +284,14 @@ When integrating with a real backend/auth provider:
 - [ ] Persist role changes in `/api/auth/set-role`
 
 ### Authentication Provider
+
 - [ ] Replace cookie-based auth with actual provider (NextAuth, Supabase, etc.)
 - [ ] Update AuthContext to use provider SDK
 - [ ] Update API routes to use provider
 - [ ] Implement session validation
 
 ### Security
+
 - [ ] Set `httpOnly: true` for cookies (once backend is secure)
 - [ ] Implement CSRF protection
 - [ ] Add rate limiting to auth endpoints
@@ -291,6 +299,7 @@ When integrating with a real backend/auth provider:
 - [ ] Implement proper password validation
 
 ### Testing
+
 - [ ] Test login flow
 - [ ] Test registration flow
 - [ ] Test role selection
@@ -302,6 +311,7 @@ When integrating with a real backend/auth provider:
 ## Types
 
 ### User Type
+
 ```typescript
 interface User {
   id: string;
@@ -316,6 +326,7 @@ type UserRole = "client" | "provider" | "admin";
 ```
 
 ### Auth Context Type
+
 ```typescript
 interface AuthContextType {
   user: User | null;
@@ -333,21 +344,25 @@ interface AuthContextType {
 ## Troubleshooting
 
 ### User stays logged in but route is protected
+
 - Check that `useRequireAuth` hook is called in the component
 - Verify that AuthProvider is wrapping the app (in layout)
 - Check browser console for errors
 
 ### Cookie not persisting
+
 - Ensure `secure: false` for development (or use HTTPS)
 - Check that `path: "/"` is set
 - Check that domain is correct
 
 ### Role not updating
+
 - Verify `/api/auth/set-role` endpoint is working (check network tab)
 - Ensure user cookie is properly decoded/encoded
 - Check that role is being persisted in database (once implemented)
 
 ### Infinite redirect loop
+
 - Check middleware conditions
 - Ensure AuthContext is initialized properly
 - Verify redirect paths are correct

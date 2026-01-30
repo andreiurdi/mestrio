@@ -1,5 +1,5 @@
 // Auth Feature - Types
-export type { User, UserRole, AuthState } from '@/lib/types/user';
+export type { User, UserRole, AuthState } from "@/lib/types/user";
 
 // Auth-specific types
 export interface LoginInput {

@@ -45,6 +45,7 @@ app/
 ```
 
 **Principles:**
+
 - Use route groups `()` for layout sharing and organization
 - Keep pages as thin as possible - they should use components from features
 - API routes are co-located with their domain (e.g., auth routes in `api/auth/`)
@@ -53,6 +54,7 @@ app/
 ### `src/features/` - Feature Modules
 
 Each feature is self-contained with its own:
+
 - **components/** - Feature-specific UI components
 - **hooks/** - Custom React hooks
 - **services/** - API service layer (calls to axios)
@@ -110,6 +112,7 @@ features/
 ```
 
 **Best Practices:**
+
 - Each feature is independent and can be developed/tested in isolation
 - Feature `index.ts` files export public API (interfaces and components to use)
 - Services layer handles all API calls using axios
@@ -140,6 +143,7 @@ components/
 ```
 
 **Guidelines:**
+
 - `ui/` - Unstyled/minimally styled primitives from Shadcn
 - `common/` - Components used across multiple features/pages
 - Avoid putting feature-specific components here; keep them in features folder
@@ -167,6 +171,7 @@ lib/
 ```
 
 **Guidelines:**
+
 - `api/` - Only axios instance and API configuration
 - `hooks/` - Only non-feature-specific hooks (like useRequireAuth)
 - `utils/` - Pure utility functions with no domain knowledge
@@ -175,6 +180,7 @@ lib/
 ### `src/middleware.ts` - Next.js Middleware
 
 Handles:
+
 - Internationalization (i18n) routing
 - Basic cookie validation
 - Request logging (optional)
@@ -182,6 +188,7 @@ Handles:
 ## Naming Conventions
 
 ### Files
+
 - **Components**: PascalCase (e.g., `AuthLayout.tsx`)
 - **Utilities/Functions**: camelCase (e.g., `auth.service.ts`)
 - **Pages**: lowercase with hyphen (e.g., `login/page.tsx`)
@@ -192,25 +199,28 @@ Handles:
 ### Imports
 
 **Good:**
+
 ```typescript
-import { AuthLayout, ProtectedRoute } from '@/features/auth/components';
-import { useAuth } from '@/features/auth/hooks';
-import { authService } from '@/features/auth/services';
-import type { User, UserRole } from '@/features/auth/types';
-import { Button } from '@/components/ui';
-import axiosInstance from '@/lib/api/axios';
+import { AuthLayout, ProtectedRoute } from "@/features/auth/components";
+import { useAuth } from "@/features/auth/hooks";
+import { authService } from "@/features/auth/services";
+import type { User, UserRole } from "@/features/auth/types";
+import { Button } from "@/components/ui";
+import axiosInstance from "@/lib/api/axios";
 ```
 
 **Bad:**
+
 ```typescript
-import AuthLayout from '@/features/auth/components/AuthLayout.tsx';
-import { useAuth } from '@/features/auth/context/AuthContext';
-import { api } from '@/lib/axios';
+import AuthLayout from "@/features/auth/components/AuthLayout.tsx";
+import { useAuth } from "@/features/auth/context/AuthContext";
+import { api } from "@/lib/axios";
 ```
 
 ## Data Flow
 
 ### Authentication Flow
+
 ```
 User Input (Page)
     ↓
@@ -228,6 +238,7 @@ Page redirects based on auth state
 ```
 
 ### Component Usage Flow
+
 ```
 Page (app/)
     ↓
@@ -266,6 +277,7 @@ Pages (app/)
 6. Add API routes under `src/app/api/[feature-name]/` if needed
 
 Example for new "Messages" feature:
+
 ```
 features/messages/
 ├── components/
@@ -305,6 +317,7 @@ app/(dashboard)/[locale]/(messages)/
 ## Testing
 
 Test structure mirrors source structure:
+
 ```
 __tests__/
 ├── features/
@@ -320,48 +333,51 @@ __tests__/
 ## Common Patterns
 
 ### Feature Service Pattern
+
 ```typescript
 // features/auth/services/auth.service.ts
-import axiosInstance from '@/lib/api/axios';
-import type { User } from '../types';
+import axiosInstance from "@/lib/api/axios";
+import type { User } from "../types";
 
 export const authService = {
   register: async (data: RegisterInput): Promise<User> => {
-    const { data: response } = await axiosInstance.post('/api/auth/register', data);
+    const { data: response } = await axiosInstance.post("/api/auth/register", data);
     return response.user;
   },
   login: async (data: LoginInput): Promise<User> => {
-    const { data: response } = await axiosInstance.post('/api/auth/login', data);
+    const { data: response } = await axiosInstance.post("/api/auth/login", data);
     return response.user;
   },
 };
 ```
 
 ### Feature Hook Pattern
+
 ```typescript
 // features/auth/hooks/useAuthForm.ts
-import { authService } from '../services';
+import { authService } from "../services";
 
 export function useAuthForm() {
   const { register } = useAuth();
-  
+
   const handleSubmit = async (data) => {
     const user = await authService.register(data);
     register(user);
   };
-  
+
   return { handleSubmit };
 }
 ```
 
 ### Feature Component Pattern
+
 ```typescript
 // features/auth/components/RegisterForm.tsx
 import { useAuthForm } from '../hooks';
 
 export function RegisterForm() {
   const { handleSubmit } = useAuthForm();
-  
+
   return (
     <form onSubmit={handleSubmit}>
       {/* form content */}
@@ -375,7 +391,7 @@ export function RegisterForm() {
 - [x] Create feature folder structure
 - [x] Create barrel exports
 - [x] Move auth files to features/auth
-- [ ] Move services to features/*/services
+- [ ] Move services to features/\*/services
 - [ ] Update all imports
 - [ ] Test complete flow
 - [ ] Document any breaking changes

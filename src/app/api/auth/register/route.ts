@@ -19,7 +19,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ message: "Password must be at least 8 characters" }, { status: 400 });
     }
 
-    // TODO: 
+    // TODO:
     // 1. Check if user already exists in database
     // 2. Hash password securely
     // 3. Save user to database

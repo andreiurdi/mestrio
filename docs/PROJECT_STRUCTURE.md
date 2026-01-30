@@ -151,50 +151,46 @@ src/
 
 ```typescript
 // Feature-level imports
-import { 
-  useAuth, 
-  AuthLayout, 
-  SocialLoginButtons,
-  loginSchema,
-  type LoginFormInputs,
-  authService
-} from '@/features/auth';
+import { useAuth, AuthLayout, SocialLoginButtons, loginSchema, type LoginFormInputs, authService } from "@/features/auth";
 
 // Component imports
-import { Button, Input, Card } from '@/components';
-import { FormFieldError } from '@/components/auth';
+import { Button, Input, Card } from "@/components";
+import { FormFieldError } from "@/components/auth";
 
 // API & Utils
-import axiosInstance from '@/lib/api/axios';
-import { useRequireAuth } from '@/lib/hooks';
-import type { User, UserRole } from '@/lib/types';
+import axiosInstance from "@/lib/api/axios";
+import { useRequireAuth } from "@/lib/hooks";
+import type { User, UserRole } from "@/lib/types";
 ```
 
 ### Avoid These Patterns
 
 ```typescript
 // ❌ Deep imports from features
-import { useAuth } from '@/features/auth/context/AuthContext';
-import { AuthLayout } from '@/features/auth/components/AuthLayout';
+import { useAuth } from "@/features/auth/context/AuthContext";
+import { AuthLayout } from "@/features/auth/components/AuthLayout";
 
 // ❌ Mixing barrel exports with specific paths
-import { loginSchema } from '@/lib/auth-schemas'; // Use features/auth instead
-import axiosInstance from '@/lib/axios';          // Use lib/api/axios instead
+import { loginSchema } from "@/lib/auth-schemas"; // Use features/auth instead
+import axiosInstance from "@/lib/axios"; // Use lib/api/axios instead
 ```
 
 ## Key Principles
 
 ### 1. Feature-Based Organization
+
 - Each feature is self-contained: components, hooks, services, types, schemas
 - Features can be developed independently
 - Easy to move, remove, or replicate features
 
 ### 2. Barrel Exports
+
 - Every directory with multiple exports has an `index.ts`
 - Import from the folder, not specific files
 - Makes refactoring easier
 
 ### 3. Layer Separation
+
 ```
 Pages (app/)
     ↓ imports from
@@ -206,17 +202,20 @@ Utilities & Types (lib/)
 ```
 
 ### 4. No Circular Dependencies
+
 - Features should not import from other features
 - Only pages/layouts can import multiple features
 
 ## Adding New Features
 
 ### 1. Create Feature Folder
+
 ```bash
 mkdir -p src/features/[feature-name]/{components,hooks,services,schemas,types}
 ```
 
 ### 2. Create Barrel Exports
+
 ```
 features/[feature-name]/
 ├── components/index.ts
@@ -228,6 +227,7 @@ features/[feature-name]/
 ```
 
 ### 3. Create Pages
+
 ```
 app/[locale]/(dashboard)/[feature-name]/
 ├── page.tsx
@@ -235,40 +235,46 @@ app/[locale]/(dashboard)/[feature-name]/
 ```
 
 ### 4. Export from Main Barrel
+
 ```typescript
 // features/[feature-name]/index.ts
-export * from './components';
-export * from './hooks';
-export * from './services';
-export * from './types';
-export * from './schemas';
+export * from "./components";
+export * from "./hooks";
+export * from "./services";
+export * from "./types";
+export * from "./schemas";
 ```
 
 ## File Organization Rules
 
 ### Components
+
 - One component per file
 - Colocate related files
 - Use `index.ts` for exports
 - Max 300 lines per component
 
 ### Services
+
 - One domain per service file
 - Pure API call functions
 - No business logic
 - 50-150 lines per service
 
 ### Hooks
+
 - Feature-specific or global
 - Encapsulate complex logic
 - 30-100 lines per hook
 
 ### Types
+
 - Grouped by feature
 - Exported from feature `types/index.ts`
 - No runtime code, only types
 
 ### Schemas
+
 - Validation schemas (Zod)
 - Located in feature folder
 - Generated types exported alongside schemas
@@ -276,6 +282,7 @@ export * from './schemas';
 ## Migration Status
 
 ✅ **Completed:**
+
 - Barrel exports for components
 - Reorganized auth feature module
 - Reorganized lib utilities
@@ -283,6 +290,7 @@ export * from './schemas';
 - Updated all imports
 
 📋 **Planned:**
+
 - Create client feature module
 - Create provider feature module
 - Create admin feature module

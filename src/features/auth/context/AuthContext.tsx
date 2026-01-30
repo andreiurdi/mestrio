@@ -70,15 +70,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         });
         setUserCookie(data.user);
       } catch (err) {
-        const message =
-          err instanceof AxiosError ? err.response?.data?.message || err.message : "Registration failed";
+        const message = err instanceof AxiosError ? err.response?.data?.message || err.message : "Registration failed";
         setError(message);
         throw err;
       } finally {
         setIsLoading(false);
       }
     },
-    [setUserCookie]
+    [setUserCookie],
   );
 
   const login = useCallback(
@@ -92,15 +91,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         });
         setUserCookie(data.user);
       } catch (err) {
-        const message =
-          err instanceof AxiosError ? err.response?.data?.message || err.message : "Login failed";
+        const message = err instanceof AxiosError ? err.response?.data?.message || err.message : "Login failed";
         setError(message);
         throw err;
       } finally {
         setIsLoading(false);
       }
     },
-    [setUserCookie]
+    [setUserCookie],
   );
 
   const logout = useCallback(async () => {
@@ -110,8 +108,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       await axiosInstance.post("/api/auth/logout");
       setUserCookie(null);
     } catch (err) {
-      const message =
-        err instanceof AxiosError ? err.response?.data?.message || err.message : "Logout failed";
+      const message = err instanceof AxiosError ? err.response?.data?.message || err.message : "Logout failed";
       setError(message);
       throw err;
     } finally {
@@ -133,15 +130,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         const { data } = await axiosInstance.post("/api/auth/set-role", { role });
         setUserCookie({ ...user, role });
       } catch (err) {
-        const message =
-          err instanceof AxiosError ? err.response?.data?.message || err.message : "Failed to set role";
+        const message = err instanceof AxiosError ? err.response?.data?.message || err.message : "Failed to set role";
         setError(message);
         throw err;
       } finally {
         setIsLoading(false);
       }
     },
-    [user, setUserCookie]
+    [user, setUserCookie],
   );
 
   const clearError = useCallback(() => {

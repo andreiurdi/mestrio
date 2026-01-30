@@ -38,8 +38,7 @@ export function ProtectedRoute({ children, requiredRole, fallback }: ProtectedRo
         const allowedRoles = Array.isArray(requiredRole) ? requiredRole : [requiredRole];
         if (!allowedRoles.includes(user.role)) {
           // User doesn't have required role - redirect to their dashboard
-          const dashboardPath =
-            user.role === "admin" ? "/admin" : user.role === "provider" ? "/provider" : "/client";
+          const dashboardPath = user.role === "admin" ? "/admin" : user.role === "provider" ? "/provider" : "/client";
           router.push(dashboardPath);
           return;
         }
