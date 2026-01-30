@@ -34,7 +34,7 @@ export function Logo({ variant = "horizontal", className = "", showTagline = fal
   const sizeProps = getSizeProps();
 
   return (
-    <Link href="/" className={`inline-flex flex-col items-center gap-2 shrink-0 ${className}`}>
+    <Link href="/public" className={`inline-flex flex-col items-center gap-2 shrink-0 ${className}`}>
       <img
         src={getLogoPath()}
         alt="Mestrio"

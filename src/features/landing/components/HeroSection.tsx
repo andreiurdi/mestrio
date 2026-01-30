@@ -9,6 +9,7 @@ import { Logo } from "./Logo";
 
 export function HeroSection() {
   const t = useTranslations("hero");
+  console.log(t("tagline"));
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -16,7 +17,7 @@ export function HeroSection() {
   };
 
   return (
-    <section className="px-6 py-16 md:py-24 flex flex-col items-center justify-center text-center bg-gradient-to-b from-primary/5 to-background">
+    <section className="px-6 py-16 md:py-24 flex flex-col items-center justify-center text-center bg-linear-to-b from-primary/5 to-background">
       <Logo variant="vertical" showTagline className="mb-8" />
 
       <Badge variant="outline" className="mb-6 border-primary/20 text-primary">

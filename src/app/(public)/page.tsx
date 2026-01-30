@@ -1,4 +1,4 @@
-import { HeroSection, HowItWorksSection, FeaturesSection, CTASection, Footer } from "@/components/features/landing";
+import { HeroSection, HowItWorksSection, FeaturesSection, CTASection, Footer } from "@/features/landing/components";
 
 export default function PublicLandingPage() {
   return (

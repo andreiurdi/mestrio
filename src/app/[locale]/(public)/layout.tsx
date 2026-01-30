@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
-import { Logo } from "@/components/features/landing/Logo";
+import { Logo } from "@/features/landing/components/Logo";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 
 export default function PublicLayout({ children }: { children: React.ReactNode }) {
