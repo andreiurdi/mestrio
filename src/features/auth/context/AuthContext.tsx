@@ -1,6 +1,8 @@
 "use client";
 
 import React, { createContext, useContext, useState, useCallback, useEffect } from "react";
+import { AxiosError } from "axios";
+import axiosInstance from "@/lib/axios";
 import type { User, UserRole } from "@/lib/types/user";
 
 export interface AuthContextType {
@@ -61,21 +63,15 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       setIsLoading(true);
       setError(null);
       try {
-        const response = await fetch("/api/auth/register", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ email, password, name }),
+        const { data } = await axiosInstance.post("/api/auth/register", {
+          email,
+          password,
+          name,
         });
-
-        if (!response.ok) {
-          const data = await response.json();
-          throw new Error(data.message || "Registration failed");
-        }
-
-        const data = await response.json();
         setUserCookie(data.user);
       } catch (err) {
-        const message = err instanceof Error ? err.message : "Registration failed";
+        const message =
+          err instanceof AxiosError ? err.response?.data?.message || err.message : "Registration failed";
         setError(message);
         throw err;
       } finally {
@@ -90,21 +86,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       setIsLoading(true);
       setError(null);
       try {
-        const response = await fetch("/api/auth/login", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ email, password }),
+        const { data } = await axiosInstance.post("/api/auth/login", {
+          email,
+          password,
         });
-
-        if (!response.ok) {
-          const data = await response.json();
-          throw new Error(data.message || "Login failed");
-        }
-
-        const data = await response.json();
         setUserCookie(data.user);
       } catch (err) {
-        const message = err instanceof Error ? err.message : "Login failed";
+        const message =
+          err instanceof AxiosError ? err.response?.data?.message || err.message : "Login failed";
         setError(message);
         throw err;
       } finally {
@@ -118,10 +107,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     setIsLoading(true);
     setError(null);
     try {
-      await fetch("/api/auth/logout", { method: "POST" });
+      await axiosInstance.post("/api/auth/logout");
       setUserCookie(null);
     } catch (err) {
-      const message = err instanceof Error ? err.message : "Logout failed";
+      const message =
+        err instanceof AxiosError ? err.response?.data?.message || err.message : "Logout failed";
       setError(message);
       throw err;
     } finally {
@@ -140,21 +130,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       }
 
       try {
-        const response = await fetch("/api/auth/set-role", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ role }),
-        });
-
-        if (!response.ok) {
-          const data = await response.json();
-          throw new Error(data.message || "Failed to set role");
-        }
-
-        const data = await response.json();
+        const { data } = await axiosInstance.post("/api/auth/set-role", { role });
         setUserCookie({ ...user, role });
       } catch (err) {
-        const message = err instanceof Error ? err.message : "Failed to set role";
+        const message =
+          err instanceof AxiosError ? err.response?.data?.message || err.message : "Failed to set role";
         setError(message);
         throw err;
       } finally {
